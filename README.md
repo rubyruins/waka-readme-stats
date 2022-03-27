@@ -162,6 +162,8 @@ Sunday       86 commits     █████░░░░░░░░░░░░�
 
 `SHOW_WEEKLY_DATA`       flag can be set to `False` to hide the Weekly Statistics
 
+`SHOW_STATS_TIME`        flag can be set to `True` to show the time spent on weekly statistics
+
 `SHOW_LANGUAGE`       flag can be set to `False` to hide the Coding Language You use
 
 ```text

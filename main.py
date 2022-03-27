@@ -37,6 +37,7 @@ showOs = os.getenv('INPUT_SHOW_OS')
 showCommit = os.getenv('INPUT_SHOW_COMMIT')
 showWeekly = os.getenv('INPUT_SHOW_WEEKLY_DATA')
 showLanguage = os.getenv('INPUT_SHOW_LANGUAGE')
+showStatsTime = os.getenv('INPUT_SHOW_STATS_TIME')
 show_loc = os.getenv('INPUT_SHOW_LINES_OF_CODE')
 show_days_of_week = os.getenv('INPUT_SHOW_DAYS_OF_WEEK')
 showLanguagePerRepo = os.getenv('INPUT_SHOW_LANGUAGE_PER_REPO')
@@ -198,9 +199,13 @@ def make_list(data: list):
     for l in data[:5]:
         ln = len(l['name'])
         ln_text = len(l['text'])
-        op = f"{l['name'][:25]}{' ' * (25 - ln)}{l['text']}{' ' * (20 - ln_text)}{make_graph(l['percent'])}   {l['percent']}%"
+        if showStatsTime.lower() in truthy:
+            op = f"{l['name'][:25]}{' ' * (25 - ln)}{l['text']}{' ' * (20 - ln_text)}{make_graph(l['percent'])}   {l['percent']}%"
+        else:
+            op = f"{l['name'][:25]}{' ' * (25 - ln)}{make_graph(l['percent'])}   {l['percent']}%"
         data_list.append(op)
     return ' \n'.join(data_list)
+
 
 
 def make_commit_list(data: list):
