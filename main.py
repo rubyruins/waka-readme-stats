@@ -202,7 +202,7 @@ def make_list(data: list):
         if showStatsTime.lower() in truthy:
             op = f"{l['name'][:25]}{' ' * (25 - ln)}{l['text']}{' ' * (20 - ln_text)}{make_graph(l['percent'])}   {l['percent']}%"
         else:
-            op = f"{l['name'][:25]}{' ' * (25 - ln)}{make_graph(l['percent'])}   {l['percent']}%"
+            op = f"{l['name'][:25]}{' ' * (15 - ln)}{make_graph(l['percent'])}   {l['percent']}%"
         data_list.append(op)
     return ' \n'.join(data_list)
 
@@ -353,7 +353,7 @@ def get_waka_time_stats():
                     lang_list = no_activity
                 else:
                     lang_list = make_list(data['data']['languages'])
-                stats = stats + '💬 ' + translate['Languages'] + ': \n' + lang_list + '\n\n'
+                stats = stats + '💬 ' + translate['Languages'] + ': \n\n' + lang_list + '\n'
 
             if showEditors.lower() in truthy:
                 empty = False
