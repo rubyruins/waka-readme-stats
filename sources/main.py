@@ -15,7 +15,11 @@ from manager_file import init_localization_manager, FileManager as FM
 from manager_debug import init_debug_manager, DebugManager as DBM
 from graphics_chart_drawer import create_loc_graph, GRAPH_PATH
 from yearly_commit_calculator import calculate_commit_data
-from graphics_list_formatter import make_list, make_commit_day_time_list, make_language_per_repo_list
+from graphics_list_formatter import (
+    make_list,
+    make_commit_day_time_list,
+    make_language_per_repo_list,
+)
 
 
 async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
@@ -36,9 +40,7 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
         stats += f"{await make_commit_day_time_list(data['data']['timezone'], repositories, commit_dates)}\n\n"
 
     if EM.SHOW_TIMEZONE or EM.SHOW_LANGUAGE or EM.SHOW_EDITORS or EM.SHOW_PROJECTS or EM.SHOW_OS:
-
         no_activity = FM.t("No Activity Tracked This Week")
-        
         if EM.SHOW_WEEKLY_DATA:
             stats += f"📊 **{FM.t('This Week I Spend My Time On')}** \n\n```text\n"
 
@@ -94,7 +96,10 @@ async def get_short_github_info() -> str:
     data = await DM.get_remote_json("github_stats")
     DBM.i("Adding contributions info...")
     if len(data["years"]) > 0:
-        contributions = FM.t("Contributions in the year") % (intcomma(data["years"][0]["total"]), data["years"][0]["year"])
+        contributions = FM.t("Contributions in the year") % (
+            intcomma(data["years"][0]["total"]),
+            data["years"][0]["year"],
+        )
         stats += f"> 🏆 {contributions}\n > \n"
     else:
         DBM.p("GitHub contributions data unavailable!")
