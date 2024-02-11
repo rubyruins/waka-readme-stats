@@ -36,35 +36,38 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
         stats += f"{await make_commit_day_time_list(data['data']['timezone'], repositories, commit_dates)}\n\n"
 
     if EM.SHOW_TIMEZONE or EM.SHOW_LANGUAGE or EM.SHOW_EDITORS or EM.SHOW_PROJECTS or EM.SHOW_OS:
+
         no_activity = FM.t("No Activity Tracked This Week")
-        stats += f"📊 **{FM.t('This Week I Spend My Time On')}** \n\n```text\n"
+        
+        if EM.SHOW_WEEKLY_DATA:
+            stats += f"📊 **{FM.t('This Week I Spend My Time On')}** \n\n```text\n"
 
-        if EM.SHOW_TIMEZONE:
-            DBM.i("Adding user timezone info...")
-            time_zone = data["data"]["timezone"]
-            stats += f"🕑︎ {FM.t('Timezone')}: {time_zone}\n\n"
+            if EM.SHOW_TIMEZONE:
+                DBM.i("Adding user timezone info...")
+                time_zone = data["data"]["timezone"]
+                stats += f"🕑︎ {FM.t('Timezone')}: {time_zone}\n\n"
 
-        if EM.SHOW_LANGUAGE:
-            DBM.i("Adding user top languages info...")
-            lang_list = no_activity if len(data["data"]["languages"]) == 0 else make_list(data["data"]["languages"])
-            stats += f"💬 {FM.t('Languages')}: \n{lang_list}\n\n"
+            if EM.SHOW_LANGUAGE:
+                DBM.i("Adding user top languages info...")
+                lang_list = no_activity if len(data["data"]["languages"]) == 0 else make_list(data["data"]["languages"])
+                stats += f"💬 {FM.t('Languages')}: \n{lang_list}\n\n"
 
-        if EM.SHOW_EDITORS:
-            DBM.i("Adding user editors info...")
-            edit_list = no_activity if len(data["data"]["editors"]) == 0 else make_list(data["data"]["editors"])
-            stats += f"🔥 {FM.t('Editors')}: \n{edit_list}\n\n"
+            if EM.SHOW_EDITORS:
+                DBM.i("Adding user editors info...")
+                edit_list = no_activity if len(data["data"]["editors"]) == 0 else make_list(data["data"]["editors"])
+                stats += f"🔥 {FM.t('Editors')}: \n{edit_list}\n\n"
 
-        if EM.SHOW_PROJECTS:
-            DBM.i("Adding user projects info...")
-            project_list = no_activity if len(data["data"]["projects"]) == 0 else make_list(data["data"]["projects"])
-            stats += f"🐱‍💻 {FM.t('Projects')}: \n{project_list}\n\n"
+            if EM.SHOW_PROJECTS:
+                DBM.i("Adding user projects info...")
+                project_list = no_activity if len(data["data"]["projects"]) == 0 else make_list(data["data"]["projects"])
+                stats += f"🐱‍💻 {FM.t('Projects')}: \n{project_list}\n\n"
 
-        if EM.SHOW_OS:
-            DBM.i("Adding user operating systems info...")
-            os_list = no_activity if len(data["data"]["operating_systems"]) == 0 else make_list(data["data"]["operating_systems"])
-            stats += f"💻 {FM.t('operating system')}: \n{os_list}\n\n"
+            if EM.SHOW_OS:
+                DBM.i("Adding user operating systems info...")
+                os_list = no_activity if len(data["data"]["operating_systems"]) == 0 else make_list(data["data"]["operating_systems"])
+                stats += f"💻 {FM.t('operating system')}: \n{os_list}\n\n"
 
-        stats = f"{stats[:-1]}```\n\n"
+            stats = f"{stats[:-1]}```\n\n"
 
     DBM.g("WakaTime stats added!")
     return stats

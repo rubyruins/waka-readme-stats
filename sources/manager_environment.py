@@ -26,6 +26,7 @@ class EnvironmentManager:
     SHOW_TIMEZONE = getenv("INPUT_SHOW_TIMEZONE", "True").lower() in _TRUTHY
     SHOW_COMMIT = getenv("INPUT_SHOW_COMMIT", "True").lower() in _TRUTHY
     SHOW_LANGUAGE = getenv("INPUT_SHOW_LANGUAGE", "True").lower() in _TRUTHY
+    SHOW_WEEKLY_DATA = getenv("INPUT_SHOW_WEEKLY_DATA", "True").lower() in _TRUTHY
     SHOW_LINES_OF_CODE = getenv("INPUT_SHOW_LINES_OF_CODE", "False").lower() in _TRUTHY
     SHOW_LANGUAGE_PER_REPO = getenv("INPUT_SHOW_LANGUAGE_PER_REPO", "True").lower() in _TRUTHY
     SHOW_LOC_CHART = getenv("INPUT_SHOW_LOC_CHART", "True").lower() in _TRUTHY

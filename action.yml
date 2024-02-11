@@ -57,6 +57,11 @@ inputs:
     description: "Show the Coding language used in dev metrics"
     default: "True"
 
+  SHOW_WEEKLY_DATA:
+    required: false
+    description: "Shows the weekly statistics for the user"
+    default: "False"
+
   SHOW_LINES_OF_CODE:
     required: false
     description: "Show the Total Lines of code written Badge till date"

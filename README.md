@@ -174,6 +174,18 @@ Sunday       86 commits     █████░░░░░░░░░░░░�
 
 ```
 
+`SHOW_WEEKLY_DATA`       flag can be set to `False` to hide the Weekly Statistics
+
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+JavaScript               28 mins             ██████████████████████░░░   88.79 % 
+JSON                     3 mins              ███░░░░░░░░░░░░░░░░░░░░░░   10.74 % 
+Markdown                 0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.47 % 
+
+```
+
 `SHOW_LANGUAGE`       flag can be set to `False` to hide the Coding Language You use
 
 ```text
