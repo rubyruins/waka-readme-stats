@@ -154,7 +154,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://rubyruins/waka-readme-stats:dev'
+  image: 'docker://rubyruins/waka-readme-stats:main'
 
 branding:
   icon: 'activity'
