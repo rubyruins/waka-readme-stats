@@ -52,6 +52,16 @@ inputs:
     description: "Shows the number of commit graph in the dev metrics"
     default: "True"
 
+  SHOW_WEEKLY_DATA:
+    required: false
+    description: "Shows the weekly statistics for the user"
+    default: "False"
+
+  SHOW_STATS_TIME:
+    required: false
+    description: "Show the time spent in weekly stats"
+    default: "False"
+    
   SHOW_LANGUAGE:
     required: false
     description: "Show the Coding language used in dev metrics"
