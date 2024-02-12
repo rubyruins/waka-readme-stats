@@ -186,6 +186,8 @@ Markdown                 0 secs              ░░░░░░░░░░░�
 
 ```
 
+`SHOW_STATS_TIME` flag can be set to `False` to hide the time spent on weekly statistics
+
 `SHOW_LANGUAGE`       flag can be set to `False` to hide the Coding Language You use
 
 ```text

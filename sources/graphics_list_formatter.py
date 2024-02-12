@@ -68,10 +68,14 @@ def make_list(data: List = None, names: List[str] = None, texts: List[str] = Non
         names = [value for item in data for key, value in item.items() if key == "name"] if names is None else names
         texts = [value for item in data for key, value in item.items() if key == "text"] if texts is None else texts
         percents = [value for item in data for key, value in item.items() if key == "percent"] if percents is None else percents
-
-    data = list(zip(names, texts, percents))
-    top_data = sorted(data[:top_num], key=lambda record: record[2], reverse=True) if sort else data[:top_num]
-    data_list = [f"{n[:25]}{' ' * (25 - len(n))}{t}{' ' * (20 - len(t))}{make_graph(p)}   {p:05.2f} % " for n, t, p in top_data]
+    if texts:
+        data = list(zip(names, texts, percents))
+        top_data = sorted(data[:top_num], key=lambda record: record[2], reverse=True) if sort else data[:top_num]
+        data_list = [f"{n[:25]}{' ' * (25 - len(n))}{t}{' ' * (20 - len(t))}{make_graph(p)}   {p:05.2f} % " for n, t, p in top_data]
+    else:
+        data = list(zip(names, percents))
+        top_data = sorted(data[:top_num], key=lambda record: record[1], reverse=True) if sort else data[:top_num]
+        data_list = [f"{n[:25]}{' ' * (25 - len(n))}{make_graph(p)}   {p:05.2f} % " for n, p in top_data]
     return "\n".join(data_list)
 
 

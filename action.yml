@@ -62,6 +62,11 @@ inputs:
     description: "Shows the weekly statistics for the user"
     default: "False"
 
+  SHOW_STATS_TIME:
+    required: false
+    description: "Show the time spent in weekly stats"
+    default: "False"
+
   SHOW_LINES_OF_CODE:
     required: false
     description: "Show the Total Lines of code written Badge till date"

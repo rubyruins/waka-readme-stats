@@ -51,6 +51,11 @@ async def get_waka_time_stats(repositories: Dict, commit_dates: Dict) -> str:
 
             if EM.SHOW_LANGUAGE:
                 DBM.i("Adding user top languages info...")
+                # Remove text for languages
+                if not EM.SHOW_STATS_TIME:
+                    if len(data["data"]["languages"]):
+                        for language in data["data"]["languages"]:
+                            language.pop("text")
                 lang_list = no_activity if len(data["data"]["languages"]) == 0 else make_list(data["data"]["languages"])
                 stats += f"💬 {FM.t('Languages')}: \n{lang_list}\n\n"
 

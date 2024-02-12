@@ -45,6 +45,7 @@ jobs:
           INPUT_SHOW_OS: True
           INPUT_SHOW_LANGUAGE: True
           INPUT_SHOW_WEEKLY_DATA: True
+          INPUT_SHOW_STATS_TIME: True
           INPUT_SYMBOL_VERSION: 1
           INPUT_SHOW_LINES_OF_CODE: True
           INPUT_SHOW_LOC_CHART: True
